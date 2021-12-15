@@ -1,7 +1,7 @@
 import knex from 'knex'
 import Bookshelf from 'bookshelf'
 
-const Knex = knex({
+export const Knex = knex({
     client: 'mysql',
     connection: {
       host     : 'bdd',

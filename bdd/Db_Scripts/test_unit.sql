@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastname` text NOT NULL,
   `mail` text NOT NULL,
   `password` text NOT NULL,
+  `birthDate` date NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
