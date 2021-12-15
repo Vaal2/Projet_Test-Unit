@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+
+  backend:
+    depends_on:
+      - bdd
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+        - "5000:5000"
+    volumes:
+        - ./backend:/api
+        - /api/node_modules
+    networks:
+        - dougscom_back
+
+  bdd:
+    container_name: bdd
+    restart: always
+    build:
+      context: ./bdd
+      dockerfile: Dockerfile
+    platform: linux/x86_64
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+        - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'cours'
+      MYSQL_DATABASE: test_unit
+    volumes:
+      - my-datavolume:/var/lib/mysql
+    networks:
+        - dougscom_back
+
+
+volumes:
+  my-datavolume:
+
+networks:
+  dougscom_front:
+    driver: bridge
+  dougscom_back:
+    driver: bridge
