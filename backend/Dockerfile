@@ -4,6 +4,8 @@ FROM node:16.13.0-alpine
 # Set the working directory to /api
 WORKDIR /api
 
+ENV GENERATE_SOURCEMAP false
+
 # copy package.json into the container at /api
 COPY package*.json /api/
 
@@ -16,4 +18,4 @@ RUN npm install
 COPY . /api/
 
 # Run the app when the container launches
-CMD ["npm", "start"]
+CMD ["npm", "test"]

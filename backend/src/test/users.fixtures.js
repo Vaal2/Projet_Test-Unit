@@ -118,13 +118,5 @@ export const users = [
 		mail: "gcye@herg.",
 		password: "",
         birthDate: "2020-02-15"
-	},
-    //Invalid birth date 15
-	{
-		firstname: "fred",
-		lastname: "jhgcuey",
-		mail: "gcye@herg.",
-		password: "",
-        birthDate: "birthdate"
 	}
 ]
