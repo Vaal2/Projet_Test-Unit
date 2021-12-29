@@ -15,18 +15,12 @@ export const isValidUsers = (user) => {
 		const reMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		const isMailValid = reMail.test(String(user.mail).toLowerCase());
 
-		const reNomPrenom = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u
-		const isNomValide = user.nom.length > 0 && reNomPrenom.test(String(user.nom));
-		const isPrenomValide = user.prenom.length > 0 && reNomPrenom.test(String(user.prenom));
+		const reNomPrenom = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
+		const isNomValide = user.lastname.length > 0 && reNomPrenom.test(String(user.lastname));
+		const isPrenomValide = user.firstname.length > 0 && reNomPrenom.test(String(user.firstname));
 		const isPsswdValide = user.password.length >= 8 && user.password.length <= 40;
 
-		const isAgeValid = calculateAge(user.birth) > 13;
-
-		console.log(user.mail, isMailValid);
-		console.log(user.nom, isNomValide);
-		console.log(user.prenom, isPrenomValide);
-		console.log(user.birth, isAgeValid);
-		console.log(user.password, isPsswdValide);
+		const isAgeValid = calculateAge(user.birthDate) > 13;
 
 		return  isMailValid && isNomValide && isPrenomValide && isAgeValid && isPsswdValide;
 	} catch {
@@ -34,3 +28,5 @@ export const isValidUsers = (user) => {
 		return false
 	}
 }
+
+export default isValidUsers;
