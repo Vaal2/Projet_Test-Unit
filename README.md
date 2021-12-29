@@ -7,6 +7,6 @@ Il suffit de se mettre à la racine  et de lancer
 
 il faudra ensuite regarder les logs du container 'backend' de l'application Docker.
 
-Le backend lance exclusievement les tests.
+Le backend lance exclusivement les tests.
 
 Il ne sera pas possible de lancer les tests en dehors de la stack Docker à cause de la base de données intégrée.
